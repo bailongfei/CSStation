@@ -224,10 +224,12 @@ public class CSBaseController {
                         queueNo = resultInfo.getT().getSrvGroupLetter() + resultInfo.getT().getQueueNo();
                     }
                     String[] noLetterIds = IniReader.readIniNoLetter();
-                    for (String s :noLetterIds){
-                        if (s.equals(jc.getSrvGroupId())){
-                            srvGroupName = jc.getSrvGroupName();
-                            break;
+                    if (noLetterIds != null) {
+                        for (String s :noLetterIds){
+                            if (s.equals(jc.getSrvGroupId())){
+                                srvGroupName = jc.getSrvGroupName();
+                                break;
+                            }
                         }
                     }
                     TicketPane ticketPane = new TicketPane(queueNo,srvGroupName);
@@ -344,10 +346,12 @@ public class CSBaseController {
                 queueNo = c.getSrvGroupLetter() + c.getQueueNo();
             }
             String[] noLetterIds = IniReader.readIniNoLetter();
-            for (String s :noLetterIds){
-                if (s.equals(c.getSrvGroupId())){
-                    srvGroupName = c.getSrvGroupName();
-                    break;
+            if (noLetterIds != null) {
+                for (String s :noLetterIds){
+                    if (s.equals(c.getSrvGroupId())){
+                        srvGroupName = c.getSrvGroupName();
+                        break;
+                    }
                 }
             }
             TicketPane ticketPane = new TicketPane(queueNo,srvGroupName);
